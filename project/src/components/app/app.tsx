@@ -17,7 +17,7 @@ function App({rentCount}: AppScreenProps): JSX.Element {
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<Main />}
+          element={<Main rentCount={rentCount} />}
         />
         <Route
           path={AppRoute.Login}
@@ -31,16 +31,10 @@ function App({rentCount}: AppScreenProps): JSX.Element {
             </PrivateRoute>
           }
         />
-        <Route path={AppRoute.Room}>
-          <Route
-            index
-            element={<RoomProperty/>}
-          />
-          <Route
-            path={AppRoute.RoomId}
-            element={<RoomProperty/>}
-          />
-        </Route>
+        <Route
+          path={AppRoute.Room}
+          element={<RoomProperty />}
+        />
         <Route
           path='*'
           element={<Error />}
