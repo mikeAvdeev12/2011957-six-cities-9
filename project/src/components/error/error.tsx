@@ -1,10 +1,9 @@
-import {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
 
 function Error(): JSX.Element {
   return (
-    <Fragment>
+    <div>
       <h1 className="place-card__name" style={{marginTop: '250px', textAlign: 'center'}}>
         404 Not Found
       </h1>
@@ -19,7 +18,7 @@ function Error(): JSX.Element {
         >go to main
         </span>
       </Link>
-    </Fragment>
+    </div>
   );
 }
 
