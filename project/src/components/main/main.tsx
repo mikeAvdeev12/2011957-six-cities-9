@@ -1,7 +1,7 @@
-import CardList from '../card-list/card-list';
+import Card from '../card/card';
 
 type MainScreenProps = {
-  rentCount: number;
+  [key: string] : number;
 }
 
 function Main({rentCount}: MainScreenProps): JSX.Element {
@@ -96,11 +96,11 @@ function Main({rentCount}: MainScreenProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <CardList/>
-                <CardList/>
-                <CardList/>
-                <CardList/>
-                <CardList/>
+                <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
               </div>
             </section>
             <div className="cities__right-section">
