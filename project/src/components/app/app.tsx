@@ -8,7 +8,7 @@ import Error from '../error/error';
 import PrivateRoute from '../private-route/private-route';
 
 type AppScreenProps = {
-  [key: string] : number;
+  rentCount : number;
 }
 
 function App({rentCount}: AppScreenProps): JSX.Element {
@@ -17,7 +17,7 @@ function App({rentCount}: AppScreenProps): JSX.Element {
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<Main rentCount={rentCount}/>}
+          element={<Main />}
         />
         <Route
           path={AppRoute.Login}
@@ -26,9 +26,10 @@ function App({rentCount}: AppScreenProps): JSX.Element {
         <Route
           path={AppRoute.Favorites}
           element={
-          <PrivateRoute  authorizationStatus={AuthorizationStatus.noAuth}>
-            <Favorites />
-          </PrivateRoute>}
+            <PrivateRoute authorizationStatus={AuthorizationStatus.noAuth}>
+              <Favorites/>
+            </PrivateRoute>
+          }
         />
         <Route path={AppRoute.Room}>
           <Route

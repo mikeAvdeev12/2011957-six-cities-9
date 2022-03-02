@@ -1,10 +1,6 @@
 import Card from '../card/card';
 
-type MainScreenProps = {
-  [key: string] : number;
-}
-
-function Main({rentCount}: MainScreenProps): JSX.Element {
+function Main(): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
