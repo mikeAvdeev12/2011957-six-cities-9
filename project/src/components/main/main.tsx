@@ -1,35 +1,39 @@
-import Card from '../card/card';
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../const';
+import CardList from '../card-list/card-list';
+import {OffersArray} from '../../types/offers';
 
 type MainScreenProps = {
-  rentCount : number;
+  rentCount: number;
+  offers: OffersArray;
 }
 
-function Main({rentCount}: MainScreenProps): JSX.Element {
+function Main({rentCount, offers}: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link header__logo-link--active">
+              <Link to={AppRoute.Root} className="header__logo-link header__logo-link--active">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81"
                   height="41"
                 />
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
+                  <Link to={AppRoute.Favorites} className="header__nav-link header__nav-link--profile">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-link" href="#">
+                  <Link to={AppRoute.Root} className="header__nav-link" >
                     <span className="header__signout">Sign out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -96,11 +100,7 @@ function Main({rentCount}: MainScreenProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                <CardList offers={offers}/>
               </div>
             </section>
             <div className="cities__right-section">
