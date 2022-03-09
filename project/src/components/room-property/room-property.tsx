@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
+import CommentForm from '../comment-form/comment-form';
 
 function RoomProperty(): JSX.Element {
   return (
@@ -186,6 +187,12 @@ function RoomProperty(): JSX.Element {
                     </div>
                   </li>
                 </ul>
+                <br/>
+                <br/>
+                <CommentForm onAnswer={() => {
+                  throw new Error('Function \'onAnswer\' isn\'t implemented.');
+                }}
+                />
               </section>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import {Fragment, useState, MouseEvent} from 'react';
+import {Fragment, useState} from 'react';
 import Card from '../card/card';
 import {OffersArray} from '../../types/offers';
 
@@ -7,11 +7,10 @@ type CardListScreenProps = {
 }
 
 function CardList({offers}: CardListScreenProps): JSX.Element {
-  const [activeCard, setActiveCard] = useState(false);
-  // console.log(useState())
-  const mouseOverHandler = (event: MouseEvent<HTMLInputElement>) => {
-    if (event.target) {setActiveCard(activeCard);}
-  };
+  const [activeCard, setActiveCard] = useState(-1);
+  // eslint-disable-next-line no-console
+  console.log(activeCard);
+  const mouseOutHandler = () => setActiveCard(-1);
 
   return (
     <Fragment>
@@ -19,8 +18,8 @@ function CardList({offers}: CardListScreenProps): JSX.Element {
         const key = offer.id;
 
         return (
-          <div key={key} onMouseOver={mouseOverHandler}>
-            <Card offer={offer}/>
+          <div key={key} onMouseEnter={() => setActiveCard(key)} onMouseLeave={mouseOutHandler}>
+            <Card offer={offer} />
           </div>
         );
       })}

@@ -41,36 +41,35 @@ function Favorites({offers}: FavoritesScreenProps): JSX.Element {
       <main className="page__main page__main--favorites">
         <h1 className="favorites__title">Saved listing</h1>
         {offers.map((offer) => {
+          const {id, city, isPremium, previewImage, price, type, title} = offer;
           const ratingStar = {
-            width: (offer.rating / 7) * 100,
+            width: `${(offer.rating / 5) * 100}%`,
           };
 
           return (
-            <div key={offer.id} className="page__favorites-container container">
+            <div key={id} className="page__favorites-container container">
               <section className="favorites">
                 <ul className="favorites__list">
                   <li className="favorites__locations-items">
                     <div className="favorites__locations locations locations--current">
                       <div className="locations__item">
                         <a className="locations__item-link" href="#">
-                          <span>{offer.city.name}</span>
+                          <span>{city.name}</span>
                         </a>
                       </div>
                     </div>
                     <div className="favorites__places">
                       <article className="favorites__card place-card">
                         <div className="place-card__mark">
-                          <span>{offer.isPremium
-                            ?
+                          <span>{isPremium && (
                             <div className="place-card__mark">
                               <span>Premium</span>
-                            </div>
-                            : ''}
+                            </div>)}
                           </span>
                         </div>
                         <div className="favorites__image-wrapper place-card__image-wrapper">
                           <a href="#">
-                            <img className="place-card__image" src={offer.previewImage}
+                            <img className="place-card__image" src={previewImage}
                               width="150" height="110" alt="Place image"
                             />
                           </a>
@@ -78,7 +77,7 @@ function Favorites({offers}: FavoritesScreenProps): JSX.Element {
                         <div className="favorites__card-info place-card__info">
                           <div className="place-card__price-wrapper">
                             <div className="place-card__price">
-                              <b className="place-card__price-value">&euro;{offer.price}</b>
+                              <b className="place-card__price-value">&euro;{price}</b>
                               <span className="place-card__price-text">&#47;&nbsp;night</span>
                             </div>
                             <button
@@ -98,10 +97,10 @@ function Favorites({offers}: FavoritesScreenProps): JSX.Element {
                             </div>
                           </div>
                           <h2 className="place-card__name">
-                            <a href="#">{offer.title}</a>
+                            <a href="#">{title}</a>
                           </h2>
-                          <p className="place-card__type">{offer.type.charAt(0).toUpperCase() +
-                            offer.type.slice(1)}
+                          <p className="place-card__type">{type.charAt(0).toUpperCase() +
+                            type.slice(1)}
                           </p>
                         </div>
                       </article>
