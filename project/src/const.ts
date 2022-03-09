@@ -1,3 +1,5 @@
+export const DEFAULT_VALUE = '';
+
 export enum AppRoute {
   Root = '/',
   Login = '/login',
